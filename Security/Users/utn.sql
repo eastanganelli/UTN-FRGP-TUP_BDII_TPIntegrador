@@ -1,0 +1,3 @@
+﻿CREATE USER [utn]
+  WITHOUT LOGIN
+GO
