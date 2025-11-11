@@ -1,15 +1,16 @@
 ﻿CREATE TABLE [dbo].[ProductosTieneProveedor] (
-  [ID] [bigint] NOT NULL,
   [IDProducto] [bigint] IDENTITY,
   [IDProveedor ] [bigint] NOT NULL,
   [PrecioProveedor] [decimal] NOT NULL,
-  PRIMARY KEY CLUSTERED ([ID]),
-  UNIQUE ([ID])
+  CONSTRAINT [PK_ProductosTieneProveedor] PRIMARY KEY CLUSTERED ([IDProducto], [IDProveedor ])
 )
 ON [PRIMARY]
 GO
 
-CREATE UNIQUE INDEX [ProductosTieneProveedor_index_0]
-  ON [dbo].[ProductosTieneProveedor] ([IDProducto], [IDProveedor ])
-  ON [PRIMARY]
+ALTER TABLE [dbo].[ProductosTieneProveedor]
+  ADD CONSTRAINT [FK_PTP_Producto] FOREIGN KEY ([IDProducto]) REFERENCES [dbo].[Productos] ([ID])
+GO
+
+ALTER TABLE [dbo].[ProductosTieneProveedor]
+  ADD CONSTRAINT [FK_PTP_Proveedor] FOREIGN KEY ([IDProveedor ]) REFERENCES [dbo].[Proveedores] ([ID])
 GO

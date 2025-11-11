@@ -17,6 +17,25 @@ CREATE UNIQUE INDEX [Items_index_0]
   ON [PRIMARY]
 GO
 
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+CREATE TRIGGER [dbo].[TR_Items_EgresoStock]
+ON [Items]
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO MovimientosStock (IDProducto, TipoMovimiento, Cantidad, Motivo)
+    SELECT 
+        i.IDProducto,
+        'Egreso',
+        i.Cantidad,
+        'Venta (Items)'
+    FROM inserted i;
+END;
+GO
+
 ALTER TABLE [dbo].[Items] WITH NOCHECK
   ADD FOREIGN KEY ([IDCondicionIVA]) REFERENCES [dbo].[CondicionIVA] ([ID])
 GO
