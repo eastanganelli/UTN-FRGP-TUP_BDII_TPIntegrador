@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[ProductosTieneProveedor] (
-  [IDProducto] [bigint] IDENTITY,
-  [IDProveedor ] [bigint] NOT NULL,
-  [PrecioProveedor] [decimal] NOT NULL,
-  CONSTRAINT [PK_ProductosTieneProveedor] PRIMARY KEY CLUSTERED ([IDProducto], [IDProveedor ])
+  [IDProducto] [bigint] NOT NULL,
+  [IDProveedor] [bigint] NOT NULL,
+  [PrecioProveedor] [decimal](10, 2) NOT NULL,
+  CONSTRAINT [PK_ProductosTieneProveedor] PRIMARY KEY CLUSTERED ([IDProducto], [IDProveedor])
 )
 ON [PRIMARY]
 GO
@@ -12,5 +12,5 @@ ALTER TABLE [dbo].[ProductosTieneProveedor]
 GO
 
 ALTER TABLE [dbo].[ProductosTieneProveedor]
-  ADD CONSTRAINT [FK_PTP_Proveedor] FOREIGN KEY ([IDProveedor ]) REFERENCES [dbo].[Proveedores] ([ID])
+  ADD CONSTRAINT [FK_PTP_Proveedor] FOREIGN KEY ([IDProveedor]) REFERENCES [dbo].[Proveedores] ([ID])
 GO

@@ -3,12 +3,11 @@
   [IDTipoResponsable] [smallint] NOT NULL,
   [Nombre] [varchar](100) NOT NULL,
   [Apellido] [varchar](100) NOT NULL,
-  [Telefono] [varchar](15) NOT NULL,
-  [CUIT-CUIL] [varchar](15) NOT NULL,
-  [Alta] [bit] NULL,
-  [Email] [varchar](255) NOT NULL,
-  PRIMARY KEY CLUSTERED ([ID]),
-  UNIQUE ([ID])
+  [Telefono] [varchar](15) NULL,
+  [CUIT_CUIL] [varchar](15) NULL,
+  [Alta] [bit] NOT NULL DEFAULT (1),
+  [Email] [varchar](225) NULL,
+  PRIMARY KEY CLUSTERED ([ID])
 )
 ON [PRIMARY]
 GO
