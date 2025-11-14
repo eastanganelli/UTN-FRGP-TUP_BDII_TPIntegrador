@@ -1,6 +1,6 @@
-﻿CREATE TABLE [dbo].[TipoNumero] (
+﻿CREATE TABLE [dbo].[Etiquetas] (
   [ID] [int] IDENTITY,
-  [Tipo] [varchar](15) NOT NULL,
+  [Etiqueta] [varchar](15) NOT NULL,
   PRIMARY KEY CLUSTERED ([ID]),
   UNIQUE ([ID])
 )
