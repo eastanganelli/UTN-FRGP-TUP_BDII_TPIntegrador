@@ -1,11 +1,11 @@
 ﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-CREATE PROCEDURE [dbo].[ClienteConVencimientoProximos] (@idCliente BIGINT)
+CREATE PROCEDURE [dbo].[ClienteConVencimientoProximos]
 AS
 BEGIN
     SELECT 
         C.Nombre,
-        COUNT(*) AS NumeroFacturasConVencimientoProximo
+        COUNT(*) AS CantidadFacturasConVencimientoProximo
     FROM Clientes C
     INNER JOIN Ventas V ON C.ID = V.[IDCliente ]
     INNER JOIN Facturas F ON V.ID = F.IDFactura

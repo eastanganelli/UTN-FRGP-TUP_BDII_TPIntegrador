@@ -8,6 +8,7 @@ BEGIN
         SUM(F.TotalConIVA) AS TotalVentas
     FROM Facturas F
     INNER JOIN TipoDeComprobante TC ON F.CodigoTipoComprobante = TC.ID
+    WHERE TC.TipoComprobante LIKE 'FACTURAS%'
     GROUP BY TC.TipoComprobante;
 END;
 GO
